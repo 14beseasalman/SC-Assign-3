@@ -58,7 +58,7 @@
     <div class="page-content">
       <h4 class="blog-post-title">Products</h4>
 <hr/>
-<button type="button" class="btn btn-danger fa fa-plus" ng-click="opea(product);">&nbsp;Add New Product</button>
+<button id="btnbtn" type="button" class="btn btn-danger fa fa-plus" ng-click="opea(product);">&nbsp;Add New Product</button>
 
 <div class="table-responsive">
 <div class="panel panel-primary">
@@ -84,12 +84,7 @@
         <td>
             <button class="btn" ng-class="{Active:'btn-success', Inactive:''}[c.status]" ng-click="changeProductStatus(c);">{{c.status}}</button>
         </td>
-        <td style="width:100px">
-            <div class="btn-group">
-              <button type="button" class="btn btn-default fa fa-edit" ng-click="open(c);"></button>
-              <button type="button" class="btn btn-danger fa fa-trash-o" ng-click="deleteProduct(c);"></button>
-            </div>
-        </td>
+
     </tr>
     </table>
 </div>
@@ -105,12 +100,12 @@
 <script src="js/angular-route.min.js"></script>
 <script src="js/angular-animate.min.js"></script>
 
+<script src="js/jquery.min.js"></script>
 <script src="app/db.js"></script>
 <script src="app/app.js"></script>
 <script src="app/directives.js"></script>
 
 
-<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/underscore.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

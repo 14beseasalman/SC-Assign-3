@@ -32,7 +32,7 @@ function populateInventoryPage(finalArr){
 			console.log(inv.doc);
 			finalArr.push(inv.doc);
 		});
-
+		$("#btnbtn").click();
 	}).catch(function (err) {
 		console.log(err);
 	});

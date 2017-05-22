@@ -58,41 +58,20 @@
       </div>
     </div>
 
-	<div id="graphDiv1" ></div>
-	
-	<br />
-	
-	<!--[if IE]><script src="excanvas.js"></script><![endif]-->
-	<script src="html5-canvas-bar-graph.js"></script>
-	<script>(function () {
-	
-		function createCanvas(divName) {
-			
-			var div = document.getElementById(divName);
-			var canvas = document.createElement('canvas');
-			div.appendChild(canvas);
-			if (typeof G_vmlCanvasManager != 'undefined') {
-				canvas = G_vmlCanvasManager.initElement(canvas);
-			}	
-			var ctx = canvas.getContext("2d");
-			return ctx;
-		}
-		
-		var ctx = createCanvas("graphDiv1");
-		
-		var graph = new BarGraph(ctx);
-		graph.maxValue = 30;
-		graph.margin = 2;
-		graph.colors = ["#49a0d8", "#d353a0", "#ffc527"];
-		graph.xAxisLabelArr = ["Shop 1", "Shop 2", "Shop 3"];
-		
-			graph.update([3,3,5]);
-		
-		}());</script>
-		<div id= "total">
-		<p> <b> TOTAL: Rs.  </b></p>
-</div>
-<script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+    <canvas id="chart">asad</canvas>
+  <div >
+    <p> <b id= "total"> TOTAL: Rs.  </b></p>
+  </div>
+  <br />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
+  <script  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/pouchdb/6.2.0/pouchdb.min.js"></script>
+  <script type="text/javascript" src="db.js"></script>
+  <script>
+  $(document).ready(function(){
+    populateSales();
+  });
+  </script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

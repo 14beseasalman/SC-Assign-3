@@ -1,3 +1,4 @@
+$("#btnbtn").hide();
 var app = angular.module('myApp',[]);
 
 getDate = function () {
