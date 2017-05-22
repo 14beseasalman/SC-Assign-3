@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<body ng-cloak="">
+<head>
+  <title>Inventory Management </title>
+  <link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
+  <meta name="Description" content="Product Manager Web Application created with AngularJS and PHP">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+  <div class="col-md-12" style="font-family: Open Sans">
+        <div class="row">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                             <a class="navbar-brand" href="../index.html">Meow Cafes</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="../index.html">Home</a></li>
+                            <li class="dropdown">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customers
+                              <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="../Order/cafe1.html">Cafe 1</a></li>
+                                <li><a href="../Order/cafe2.html">Cafe 2</a></li>
+                                <li><a href="../Order/cafe3.html">Cafe 3</a></li>
+                              </ul>
+                            </li>
+                            <li class="active"><a href="../Inventory/inven.html">Inventory</a></li>
+                            <li><a href="../Employee/emp.html">Employees</a></li>
+                            <li><a href="../Sales/sales.html">Sales</a></li>
+                            <li><a href="http://138.68.178.97:5984/_utils/database.html?cafe">Database</a></li>
+
+                        </ul>
+                    </div>
+                </nav>
+           
+        </div>
+    </div>
+
+  <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="#">Refresh</a>
+             <div class="jumbotron">
+          <h2><span class="text-warning"></span>Meow <span class="text-success">Cafe <img src="http://vignette1.wikia.nocookie.net/pokemon/images/b/b8/052Meowth_BW_anime.png/revision/latest?cb=20150101230316" height="42" width="42"> </span></h2>
+          
+          <span class="pull-right text-muted">Inventory for Employees and Administration</span>
+          <div class="text-muted">F-11, Islamabad</div>
+        </div>
+        </nav>
+      </div>
+    </div>
+
+<div class="container" ng-controller="productsCtrl">
+    <div class="page-content">
+      <h4 class="blog-post-title">Products</h4>
+<hr/>
+<button type="button" class="btn btn-danger fa fa-plus" ng-click="opea(product);">&nbsp;Add New Product</button>
+
+<div class="table-responsive">
+<div class="panel panel-primary">
+  <div class="panel-heading">List of products
+      <div class="sw-search" >
+            <div class="nav-search" id="nav-search">
+                    Filter: <span class="input-icon">
+                        <input placeholder="Filter products list ..." class="nav-search-input" ng-model="filterProduct" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
+                        <i class="search-icon fa fa-search nav-search-icon"></i>
+                    </span>
+            </div>
+        </div>
+    </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+    <tr ng-show="products.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
+    <tr ng-hide="products.length>-1"><td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td></tr>
+    
+    <tr><th ng-repeat="c in columns">{{c.text}}</th></tr>
+
+    <tr ng-repeat="c in products | filter:filterProduct | orderBy:'-id'" id="{{c.id}}" animate-on-change='c.packing + c.stock + c.price + c.description' ng-animate=" 'animate'">
+        <td>{{c.prodid}}</td><td>{{c.name}}</td><td>{{c.price}}</td><td>{{c.stock}}</td><td>{{c.packing}}</td><td>{{c.description}}</td><td>{{c.cafe|cafename}}</td>
+        <td>
+            <button class="btn" ng-class="{Active:'btn-success', Inactive:''}[c.status]" ng-click="changeProductStatus(c);">{{c.status}}</button>
+        </td>
+        <td style="width:100px">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default fa fa-edit" ng-click="open(c);"></button>
+              <button type="button" class="btn btn-danger fa fa-trash-o" ng-click="deleteProduct(c);"></button>
+            </div>
+        </td>
+    </tr>
+    </table>
+</div>
+</div>
+</div>
+              
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/pouchdb/6.2.0/pouchdb.min.js"></script>
+
+<script src="js/angular.min.js"></script>
+<script src="js/ui-bootstrap-tpls-0.11.2.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
+
+<script src="app/db.js"></script>
+<script src="app/app.js"></script>
+<script src="app/directives.js"></script>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/underscore.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
